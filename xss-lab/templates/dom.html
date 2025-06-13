@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM-based XSS Demo</title>
+</head>
+<body>
+    <h1>Chào mừng!</h1>
+    <div id="greeting"></div>
+    <script>
+        // LỖ HỔNG: Dữ liệu từ URL hash được viết trực tiếp vào DOM
+        let name = decodeURIComponent(window.location.hash.substring(1));
+        if (name) {
+            document.getElementById('greeting').innerHTML = 'Chào, ' + name;
+        }
+    </script>
+</body>
+</html>

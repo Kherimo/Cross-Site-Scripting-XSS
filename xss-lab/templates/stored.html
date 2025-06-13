@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stored XSS Demo</title>
+</head>
+<body>
+    <h1>Bình luận</h1>
+    <div>
+        {% for comment in comments %}
+            <div>{{ comment | safe }}</div>
+        {% endfor %}
+    </div>
+    <hr>
+    <form method="post">
+        <textarea name="comment" placeholder="Để lại bình luận..."></textarea>
+        <button type="submit">Gửi</button>
+    </form>
+</body>
+</html>

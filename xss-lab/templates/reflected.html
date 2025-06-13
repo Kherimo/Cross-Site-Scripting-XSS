@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reflected XSS Demo</title>
+</head>
+<body>
+    <h1>Tìm kiếm</h1>
+    <form method="get">
+        <input type="text" name="q" placeholder="Nhập từ khóa...">
+        <button type="submit">Tìm</button>
+    </form>
+    {% if query %}
+        <p>Kết quả cho: {{ query | safe }}</p>
+    {% endif %}
+</body>
+</html>
